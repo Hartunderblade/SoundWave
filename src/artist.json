@@ -1,0 +1,63 @@
+{
+    "name": "Massive Attack",
+    "albumCover": "src/app/images/image-track-1.jpg",
+    "releaseYear": "2010",
+    "tracks": [
+        {
+            "id": 1,
+            "name": "Rush Minute",
+            "path": "src/app/songs/Rush-Minute.mp3"
+        },
+        {
+            "id": 2,
+            "name": "Saturday Come Slow",
+            "path": "src/app/songs/Saturday-Come-Slow.mp3"
+        },
+        {
+            "id": 3,
+            "name": "Girl I Love You",
+            "path": "src/app/songs/Girl-I-Love-You.mp3"
+        },
+        {
+            "id": 4,
+            "name": "Paradise Circus",
+            "path": "src/app/songs/Paradise-Circus.mp3"
+        },
+        {
+            "id": 5,
+            "name": "track5",
+            "path": "src/app/songs/track5.mp3"
+        },
+        {
+            "id": 6,
+            "name": "track6",
+            "path": "src/app/songs/track6.mp3"
+        },
+        {
+            "id": 7,
+            "name": "track7",
+            "path": "src/app/songs/track7.mp3"
+        },
+        {
+            "id": 8,
+            "name": "track8",
+            "path": "src/app/songs/track8.mp3"
+        },
+        {
+            "id": 9,
+            "name": "track9",
+            "path": "src/app/songs/track9.mp3"
+        },
+        {
+            "id": 10,
+            "name": "track10",
+            "path": "src/app/songs/track10.mp3"
+        },
+        {
+            "id": 11,
+            "name": "track11",
+            "path": "src/app/songs/track11.mp3"
+        }
+    ]
+}
+
