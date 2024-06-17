@@ -5,10 +5,10 @@ import ProfilMenu from '@/widget/profilMenu/ui.vue';
 <template>
   <div class="nav">
     <div class="nav-item">
-      <form>
+      <!-- <form>
       <img src="@/app/images/search-input.svg" alt="">
       <input type="serch" placeholder="Что ты хочешь послушать?">
-    </form>
+    </form> -->
     <ProfilMenu/>
     </div>
     
@@ -18,34 +18,16 @@ import ProfilMenu from '@/widget/profilMenu/ui.vue';
 
 <style lang="scss" scoped>
     .nav{
-        
-
-        // padding: 20px 70px ;
-        // // gap: 20px;
-
-        // background: rgba(0, 0, 0, 0.29);
-        // position: absolute;
-        // right: 0;
-        // left: 0;
-        // top: 0;
-
-        
-
-        // margin: 0 70px;
-        // margin-bottom: 80px;
+      margin: 30px 20px 40px 20px;
         .nav-item{
-        //   display: flex;
-        // align-items: center;
-        // justify-content: center;
-        
-        // column-gap: 600px;
-        // width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: end;        
+
           form {
-          // position: relative;
           display: flex;
           align-items: center;
           width: 360px;
-          // margin: 0 auto;
 
           background: #ffffff;
           border-radius: 100px;

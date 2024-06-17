@@ -85,8 +85,8 @@ const isHover = () => {
     >
 
         <img class="item__img" :width="iconSize" :src="`./src/app/images/${icon}.svg`" alt="Icon">
-        <div class="item__text white gray" :class="[textIsHover ? white : gray]">
-            <span class="white" :class="[route.path == pageUrl ?  white : '']">
+        <div class="item__text white gray" :class="textIsHover ? white : gray">
+            <span class="white" :class="route.path == pageUrl ?  white : ''">
                 {{ name }}
             </span>
         </div>
@@ -117,14 +117,15 @@ const isHover = () => {
             .white{
                 color: white;
             }
-        }
-
-        .white{
+            
+        }.white{
             color: white;
         }
 
         .gray{
             color: gray;
         }
+
+        
     }
 </style>

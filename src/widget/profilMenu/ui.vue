@@ -1,7 +1,10 @@
 <script setup>
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 
 let openMenu = ref(false)
+
+const router = useRouter();
 
 // const props = defineProps({
 //     text: String,
@@ -12,14 +15,13 @@ let openMenu = ref(false)
 
 
 <template>
-        <div class="profil">
+        <div  class="profil">
             <p class="profil__text">Имя</p>
             <img v-if="!openMenu" @click="openMenu = true" class="profil__img" src="@/app/images/arrow-profile.svg" alt="Arrow down">
             <img v-else @click="openMenu = false" class="profil__img" src="@/app/images/arrow-profile-up.svg" alt="Arrow up">
         </div>
         <div class="profil-menu" v-if="openMenu">
-            <p class="profil-menu__text">Профиль</p>
-            <p  class="profil-menu__text">Выйти в окно</p>
+            <p  class="profil-menu__text" @click="router.push({ name: 'Login' })">Выйти в окно</p>
         </div>
 </template>
 

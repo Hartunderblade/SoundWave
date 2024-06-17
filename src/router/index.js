@@ -1,48 +1,70 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router';
+import Profile from '@/pages/profile/ui.vue';
+import Main from '@/pages/main/ui.vue';
+import Search from '@/pages/Search/ui.vue';
+import Like from '@/pages/Like/ui.vue';
+
+import { isAuthenticated } from '@/stores/index.js';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
-    // {
-    //   path: '/',
-    //   redirect: '/login'
-    // },
-    // {
-    //   path: '/',
-    //   name: 'userPage',
-    //   component: () => import('@/pages/User/ui.vue')
-    // },
     {
       path: '/login',
-      name: 'login',
+      name: 'Login',
       component: () => import('@/pages/LogIn/ui.vue')
     },
     {
-      path: '/',
-      name: 'home',
-      component: () => import('@/pages/Home/ui.vue')
-    },
-    {
       path: '/signup',
-      name: 'signup',
-      component: () => import('@/pages/Signup/ui.vue')
+      name: 'Signup',
+      component: () => import('@/pages/Signup/ui.vue'),
     },
     {
-      path: '/search',
-      name: 'search',
-      component: () => import('@/pages/Search/ui.vue')
-    },
-    {
-      path: '/library',
-      name: 'library',
-      component: () => import('@/pages/Library/ui.vue')
-    },
-    {
-      path: '/like',
-      name: 'Like',
-      component: () => import('@/pages/Like/ui.vue')
+      path: '/',
+      name: 'profile',
+      component: Profile,
+      meta:{
+        needAuth: true,
+      },
+      children: [
+        {
+          path: '',
+          name: 'Main',
+          component: Main,
+          meta:{
+            isPersonalPage: true,
+          },
+        },
+        {
+          path: 'search',
+          name: 'Search',
+          component: Search
+        },
+        // {
+        //   path: 'library',
+        //   name: 'Library',
+        //   component: Library
+        // },
+        // {
+        //   path: 'album/:id',
+        //   name: 'album',
+        //   component: AlbumDetails
+        // },
+        {
+          path: 'like',
+          name: 'Like',
+          component: Like
+        }
+      ]
     }
   ]
+})
+
+
+router.beforeEach((to, from) => {
+  if(to.meta.needAuth && !isAuthenticated.value){
+    return{ name: 'Login' }
+  }
 })
 
 export default router

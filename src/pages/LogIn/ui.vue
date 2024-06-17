@@ -1,24 +1,30 @@
 <script setup>
 import { ref } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
-import Logo from "@/shared/logo/ui.vue";
 import Plates from "@/shared/plates/ui.vue";
+
+import { isAuthenticated } from '@/stores/index.js';
 
 const email = ref('');
 const password = ref('');
 const router = useRouter();
 
-const signin = () =>{
-  const trimEmail = email.value.trim();
-  const trimPassword = password.value.trim();
+// const signin = () =>{
+//   const trimEmail = email.value.trim();
+//   const trimPassword = password.value.trim();
 
-  if(trimEmail === 'email@gmail.com' && trimPassword === 'pass'){
-    console.log('Вход');
-    router.push({ name: 'userPage'});
-  }
-  else{
-    console.log('Ошибка! Проверьте почту или пароль');
-  }
+//   if(trimEmail === 'email@gmail.com' && trimPassword === 'pass'){
+//     console.log('Вход');
+//     router.push({ name: 'userPage'});
+//   }
+//   else{
+//     console.log('Ошибка! Проверьте почту или пароль');
+//   }
+// }
+
+function handleClick(){
+  isAuthenticated.value = true;
+  router.push({ name: 'Main' });
 }
 
 
@@ -28,7 +34,7 @@ const signin = () =>{
 
   <main class="container-form">
     <nav class="navigation">
-      <Logo />
+      <img src="@/app/images/logo-2.svg" alt="Логотип">
     </nav>
     <section class="wrapper">
       <Plates/>
@@ -53,10 +59,8 @@ const signin = () =>{
                 placeholder="Пароль"
               />
             </div>
-            <input class="form__button" type="submit" value="Войти" />
-            <RouterLink to="/signup">
-              <p class="form-link__text" >У вас ещё нет аккаунта? <span style="color: #08D67F; font-size: 18px; font-weight: 600;">Зарегистрируйтесь</span></p>
-            </RouterLink>
+            <input @click="handleClick" class="form__button" type="submit" value="Войти" />
+            <p style="cursor: pointer;" @click="router.push({ name: 'Signup' })" class="form-link__text" >У вас ещё нет аккаунта? <span style="color: #08D67F; font-size: 18px; font-weight: 600;">Зарегистрируйтесь</span></p>
       </form>   
     </div>
 
@@ -102,13 +106,14 @@ const signin = () =>{
       &__text{
         font-size: 32px;
         margin-bottom: 30px;
+        
       }
 
       &__input{
         font-size: 14px;
         font-weight: 400;
         width: 380px;
-        height: 40px;
+        height: 60px;
 
         padding: 12px 16px;
 
@@ -117,6 +122,8 @@ const signin = () =>{
         outline: #019658;
 
         color: #000;
+
+        
       }
 
       &__button{

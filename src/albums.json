@@ -1,0 +1,89 @@
+[
+        {
+            "id": 1,
+            "name": "Bruno Mars",
+            "albumCover": "Doo-Wops & Hooligans",
+            "images": "/src/app/images/Doo-Wops & Hooligans-BrunoMars.jpg",
+            "releaseYear": "2010",
+            "track": [
+                {
+                    "id": 1,
+                    "name": "Our First Time",
+                    "path": "src/app/images/Doo-Wops & Hooligans-BrunoMars.jpg"
+                },
+                {
+                    "id": 2,
+                    "name": "Runaway Baby",
+                    "path": ""
+                },
+                {
+                    "id": 3,
+                    "name": "Marry You",
+                    "path": ""
+                },
+                {
+                    "id": 4,
+                    "name": "Count on Me",
+                    "path": ""
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Doja Cat",
+            "albumCover": "Planet Her",
+            "images": "/src/app/images/Planet Her-DojaCat.jpg",
+            "releaseYear": "2021",
+            "track": [
+                {
+                    "id": 1,
+                    "name": "Woman",
+                    "path": ""
+                },
+                {
+                    "id": 2,
+                    "name": "Get Into It",
+                    "path": ""
+                },
+                {
+                    "id": 3,
+                    "name": "Need to Know",
+                    "path": ""
+                },
+                {
+                    "id": 4,
+                    "name": "Kiss Me More",
+                    "path": ""
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Massive Attack",
+            "albumCover": "Heligoland",
+            "images": "/src/app/images/image-track-1.jpg",
+            "releaseYear": "2010",
+            "track": [
+                {
+                    "id": 1,
+                    "name": "Rush Minute",
+                    "path": "src/app/songs/Rush-Minute.mp3"
+                },
+                {
+                    "id": 2,
+                    "name": "Saturday Come Slow",
+                    "path": "src/app/songs/Saturday-Come-Slow.mp3"
+                },
+                {
+                    "id": 3,
+                    "name": "Girl I Love You",
+                    "path": "src/app/songs/Girl-I-Love-You.mp3"
+                },
+                {
+                    "id": 4,
+                    "name": "Paradise Circus",
+                    "path": "src/app/songs/Paradise-Circus.mp3"
+                }
+            ]
+        }
+]

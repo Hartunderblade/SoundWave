@@ -1,30 +1,45 @@
 <script setup>
-import { ref } from 'vue';
-import { useRoute, useRouter } from 'vue-router';
-import Logo from "@/shared/logo/ui.vue";
+import { ref, computed } from 'vue';
+import { useRouter } from 'vue-router';
 import Plates from "@/shared/plates/ui.vue";
 
+const router = useRouter();
+const startValidation = ref(false);
 
 const login = ref('');
 const email = ref('');
 const password = ref('');
-const passwordRepeat = ref('');
-const router = useRouter();
+const confirmPassword = ref('');
 
-const signup = () => {
-  const trimLogin = login.value.trim();
-  const trimEmail = email.value.trim();
-  const trimPassword = password.value.trim();
-  const trimPasswordRepeat = passwordRepeat.value.trim();
 
-  if(trimPassword == trimPasswordRepeat){
-    console.log('Регистрация прошла успешно');
-    router.push({ name: 'login'})
-  }
-  else{
-    console.log('Ошибка! Пароли не совпадают');
+const RegisterUser = () => {
+  startValidation.value = true;
+
+  if(isValidEmail.value == true && isStronPassword.value == true){
+    // api
+
+    alert('вы зарег!!!')
+
   }
 }
+
+const isValidLogin = computed(() => {
+  return startValidation.value ? /^[a-zA-Z](.[a-zA-Z0-9_-]*)$/.test(login.value) : null;
+});
+
+const isValidEmail = computed(() => {
+  return startValidation.value ? /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email.value) : null;
+});
+
+const isStronPassword = computed(() => {
+  return startValidation.value ? /(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{6,}/.test(password.value) : null;
+});
+
+const isPasswordConfirmed = computed(() => {
+ return startValidation.value ? password.value == confirmPassword.value : null;
+});
+
+
 
 
 </script>
@@ -32,13 +47,15 @@ const signup = () => {
 <template>
 <main class="container-form">
     <nav class="navigation">
-      <Logo />
+      <img src="@/app/images/logo-2.svg" alt="Логотип">
     </nav>
     <section class="wrapper">
       <Plates/>
       <div class="form">
+       
         <form @submit.prevent="signup">
-          <h2 class="form__text">Регистрация</h2>
+          <h2 class="form__text">Регистрация</h2> 
+          <!-- {{ isValidLogin }} -->
             <div>
               <input
                 class="form__input"
@@ -46,39 +63,46 @@ const signup = () => {
                 name="login"
                 v-model="login"
                 placeholder="Логин"
+                :class="{ valid : isValidLogin == true, inValid : isValidLogin == false }"
               />
             </div>
+            <!-- {{ isValidEmail }} -->
             <div>
+              
               <input
                 class="form__input"
                 type="text"
                 name="email"
                 v-model="email"
                 placeholder="Почта"
+                :class="{ valid : isValidEmail == true, inValid : isValidEmail == false }"
               />
             </div>
+            <!-- {{isStronPassword}} -->
             <div>
+              
               <input
                 class="form__input"
                 type="password"
                 name="password"
                 v-model="password"
                 placeholder="Пароль"
+                :class="{ valid : isStronPassword == true, inValid : isStronPassword == false }"
               />
             </div>
+            <!-- {{ isPasswordConfirmed }} -->
             <div>
               <input
                 class="form__input"
                 type="password"
-                name="passwordRepeat"
-                v-model="passwordRepeat"
+                name="confirmPassword"
+                v-model="confirmPassword"
                 placeholder="Подтвердите пароль"
+                :class="{ valid : isPasswordConfirmed == true, inValid : isPasswordConfirmed == false }"
               />
             </div>
-            <input class="form__button" type="submit" value="Зарегистрироваться" />
-            <RouterLink to="/login">
-              <p class="form-link__text" >У вас уже есть аккаунт? <span style="color: #08D67F; font-size: 18px; font-weight: 600;">Войдите</span></p>
-            </RouterLink>
+            <input @click="RegisterUser" class="form__button" type="submit" value="Зарегистрироваться" />
+            <p style="cursor: pointer;" @click="router.push({ name: 'Login' })" class="form-link__text" >У вас уже есть аккаунт? <span style="color: #08D67F; font-size: 18px; font-weight: 600;">Войдите</span></p>
       </form>   
     </div>
 
@@ -130,7 +154,7 @@ const signup = () => {
       font-size: 14px;
       font-weight: 400;
       width: 380px;
-      height: 40px;
+      height: 60px;
 
       padding: 12px 16px;
 
@@ -139,7 +163,18 @@ const signup = () => {
       outline: #019658;
 
       color: #000;
+
+      
     }
+    .valid{
+        border: 2px solid #06c374; 
+        // background-color: #baffe1;
+      }
+
+      .inValid{
+        border: 2px solid #c40837; 
+        background-color: #ffdfe8;
+      }
 
     &__button{
       font-size: 20px;

@@ -6,14 +6,14 @@
 
 <style lang="scss">
 .plates{
-    position: relative;
 
     &__img{
         position: absolute;
-        top: -210px;
-        left: -260px;
-        width: 980px;
-        height: 980px;
+        top: 0;
+        left: 0;
+        // left: -260px;
+        width: 950px;
+        height: 950px;
     }
 }
 

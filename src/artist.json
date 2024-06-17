@@ -1,61 +1,80 @@
 {
-    "name": "Massive Attack",
-    "albumCover": "src/app/images/image-track-1.jpg",
-    "releaseYear": "2010",
     "tracks": [
         {
             "id": 1,
+            "author": "Massive Attack",
             "name": "Rush Minute",
+            "albumCover": "src/app/images/image-track-1.jpg",
             "path": "src/app/songs/Rush-Minute.mp3"
         },
         {
             "id": 2,
+            "author": "Massive Attack",
             "name": "Saturday Come Slow",
+            "albumCover": "src/app/images/image-track-1.jpg",
             "path": "src/app/songs/Saturday-Come-Slow.mp3"
         },
         {
             "id": 3,
+            "author": "Massive Attack",
             "name": "Girl I Love You",
+            "albumCover": "src/app/images/image-track-1.jpg",
             "path": "src/app/songs/Girl-I-Love-You.mp3"
         },
         {
             "id": 4,
+            "author": "Massive Attack",
             "name": "Paradise Circus",
+            "albumCover": "src/app/images/image-track-1.jpg",
             "path": "src/app/songs/Paradise-Circus.mp3"
         },
         {
             "id": 5,
+            "author": "Massive Attack",
             "name": "track5",
+            "albumCover": "src/app/images/image-track-1.jpg",
             "path": "src/app/songs/track5.mp3"
         },
         {
             "id": 6,
+            "author": "Massive Attack",
             "name": "track6",
+            "albumCover": "src/app/images/image-track-1.jpg",
             "path": "src/app/songs/track6.mp3"
         },
         {
             "id": 7,
+            "author": "Massive Attack",
             "name": "track7",
+            "albumCover": "src/app/images/image-track-1.jpg",
             "path": "src/app/songs/track7.mp3"
         },
         {
             "id": 8,
+            "author": "Massive Attack",
             "name": "track8",
+            "albumCover": "src/app/images/image-track-1.jpg",
             "path": "src/app/songs/track8.mp3"
         },
         {
             "id": 9,
+            "author": "Massive Attack",
             "name": "track9",
+            "albumCover": "src/app/images/image-track-1.jpg",
             "path": "src/app/songs/track9.mp3"
         },
         {
             "id": 10,
+            "author": "Massive Attack",
             "name": "track10",
+            "albumCover": "src/app/images/image-track-1.jpg",
             "path": "src/app/songs/track10.mp3"
         },
         {
             "id": 11,
+            "author": "Massive Attack",
             "name": "track11",
+            "albumCover": "src/app/images/image-track-1.jpg",
             "path": "src/app/songs/track11.mp3"
         }
     ]
