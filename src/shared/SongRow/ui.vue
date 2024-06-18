@@ -22,14 +22,14 @@ const isFavorite = () => {
 
 const props = defineProps({
     track: Object,
-    atrist: Object,
+    artist: Object,
     index: Number,
     albumCover: String,
     isFavorite: Boolean,
     onClickFavorite: Function
 })
 
-const { track, atrist, index, albumCover } = toRefs(props)
+const { track, artist, index, albumCover } = toRefs(props)
 
 //функция подсчета длительности трека
 
@@ -42,20 +42,18 @@ onMounted(() => {
         isTrackTime.value = minutes+':'+seconds.toString().padStart(2, '0')
     })
 })
+  console.log(artistData);
 
+function addToFavorites(itemId) {
+  const track = artist.tracks.value.find(({id}) => id === itemId);
 
-function addToFavorites(track) {
-  if (!isLiked.value) {
-    isLiked.value = true;
-    like.value.push(track);
-  } else {
-    isLiked.value = false;
-    const index = like.value.findIndex(item => item.id === track.id);
-    if (index !== -1) {
-      like.value.splice(index, 1);
-    }
+  if(!localStorage.getItem('like')){
+    localStorage.setItem('like', JSON.stringify([]));
   }
-  localStorage.setItem('like', JSON.stringify(like.value));
+  const likeItems = JSON.parse(localStorage.getItem('like'));
+  likeItems.push(track);
+  localStorage.setItem('like', JSON.stringify(likeItems));
+  like.value = JSON.parse(localStorage.getItem('like'))
 }
 </script>
 
@@ -92,7 +90,7 @@ function addToFavorites(track) {
                 </div>
             </div>
             <div class="track-details">
-                <button @click="() => addToFavorites(track)" class="track-details__like" type="submit" v-if="isHover">
+                <button @click="addToFavorites(track.id)" class="track-details__like" type="submit" v-if="isHover">
                     <img :src="isLiked ? '/src/app/images/active-like.svg': '/src/app/images/liked-inactive.svg'" alt="Избранное">
                 </button>
                 <div class="track-details__time" v-if="isTrackTime">

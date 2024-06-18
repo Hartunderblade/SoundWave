@@ -1,23 +1,25 @@
 <script setup>
-import { onBeforeMount, ref } from 'vue';
+import { onBeforeMount, ref, registerRuntimeCompiler } from 'vue';
 import artistData from '@/artist.json';
 import SongRow from '@/shared/SongRow/ui.vue';
 
 import { useSongStore } from '@/stores/song.js';
 import { storeToRefs } from 'pinia';
 const useSong = useSongStore();
-const { isPlaying, currentTrack, currentArtist, like } = storeToRefs(useSong);
+const { isPlaying, currentTrack, currentArtist } = storeToRefs(useSong);
 
-// function getTrack(){
-//   if(!localStorage.getItem(like)){
-//     localStorage.setItem('cart', JSON.stringify([]))
-//   }
-//   like.value = JSON.parse(localStorage.getItem('like'));
-// }
+const like = ref([]);
 
-// onBeforeMount(() => {
-//   getTrack();
-// })
+function getTrack(){
+  if(!localStorage.getItem('like')){
+    localStorage.setItem('like', JSON.stringify([]))
+  }
+  like.value = JSON.parse(localStorage.getItem('like'));
+}
+
+onBeforeMount(() => {
+  getTrack();
+})
 
 
 </script>

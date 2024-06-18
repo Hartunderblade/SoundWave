@@ -4,7 +4,7 @@ import Main from '@/pages/main/ui.vue';
 import Search from '@/pages/Search/ui.vue';
 import Like from '@/pages/Like/ui.vue';
 
-import { isAuthenticated } from '@/stores/index.js';
+// import { isAuthenticated } from '@/stores/index.js';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -61,10 +61,10 @@ const router = createRouter({
 })
 
 
-router.beforeEach((to, from) => {
-  if(to.meta.needAuth && !isAuthenticated.value){
-    return{ name: 'Login' }
-  }
-})
+// router.beforeEach((to, from) => {
+//   if(to.meta.needAuth && !isAuthenticated.value){
+//     return{ name: 'Login' }
+//   }
+// })
 
 export default router
