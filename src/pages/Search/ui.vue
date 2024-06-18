@@ -25,6 +25,7 @@ const filteredTracks = computed(() => {
 <template>
     <div class="container-form">
         <input type="text" v-model="search" placeholder="Что ты хочешь послушать?">
+        
         <div class="artist">
             <div class="artist-track">
                 <div v-for="track, index in filteredTracks" :key="track">
@@ -32,6 +33,7 @@ const filteredTracks = computed(() => {
                 </div>
             </div>
         </div>
+        
     </div>
 </template>
 

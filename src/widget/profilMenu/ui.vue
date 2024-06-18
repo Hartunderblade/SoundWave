@@ -16,7 +16,7 @@ const router = useRouter();
 
 <template>
         <div  class="profil">
-            <p class="profil__text">Имя</p>
+            <p class="profil__text">newUser@gmail.com</p>
             <img v-if="!openMenu" @click="openMenu = true" class="profil__img" src="@/app/images/arrow-profile.svg" alt="Arrow down">
             <img v-else @click="openMenu = false" class="profil__img" src="@/app/images/arrow-profile-up.svg" alt="Arrow up">
         </div>
@@ -43,8 +43,8 @@ const router = useRouter();
         // margin-left: 50px;
 
         &__text{
-            font-weight: 700;
-            font-size: 20px;
+            font-weight: 400;
+            font-size: 18px;
         }
 
         &__img{
@@ -59,9 +59,10 @@ const router = useRouter();
         // width: 190px;
         // background: #282828;
         // height: 75px;
-        top: 74px;
-        right: 35px;
+        top: 78px;
+        right: 20px;
         // padding: 1px;
+       
         
         border: 1px solid #c0c0c02a;
 
@@ -75,7 +76,7 @@ const router = useRouter();
 
             cursor: pointer;
 
-            padding: 14px 18px;
+            padding: 14px 20px;
 
             &:hover{
                 background:#171717;

@@ -37,31 +37,31 @@
         },
         {
             "id": 6,
-            "author": "Massive Attack",
-            "name": "track6",
-            "albumCover": "src/app/images/image-track-1.jpg",
-            "path": "src/app/songs/track6.mp3"
+            "author": "Хаски",
+            "name": "Сколько стоят деньги?",
+            "albumCover": "src/app/images/album-img-6.jpg",
+            "path": "src/app/songs/Хаски - Сколько стоят деньги.mp3"
         },
         {
             "id": 7,
-            "author": "Massive Attack",
-            "name": "track7",
-            "albumCover": "src/app/images/image-track-1.jpg",
-            "path": "src/app/songs/track7.mp3"
+            "author": "Хаски",
+            "name": "О любви",
+            "albumCover": "src/app/images/album-img-7.jpg.jpg",
+            "path": "src/app/songs/Хаски - О любви.mp3"
         },
         {
             "id": 8,
-            "author": "Massive Attack",
-            "name": "track8",
-            "albumCover": "src/app/images/image-track-1.jpg",
-            "path": "src/app/songs/track8.mp3"
+            "author": "Loqiemean",
+            "name": "Паразиты",
+            "albumCover": "src/app/images/album-img-8.jpg",
+            "path": "src/app/songs/Loqiemean - Паразиты.mp3"
         },
         {
             "id": 9,
-            "author": "Massive Attack",
-            "name": "track9",
-            "albumCover": "src/app/images/image-track-1.jpg",
-            "path": "src/app/songs/track9.mp3"
+            "author": "Loqiemean",
+            "name": "Одинокий каннибал",
+            "albumCover": "src/app/images/album-img-9.jpg",
+            "path": "src/app/songs/Loqiemean - Одинокий каннибал.mp3"
         },
         {
             "id": 10,

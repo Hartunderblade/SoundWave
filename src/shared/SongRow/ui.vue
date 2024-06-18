@@ -42,11 +42,11 @@ onMounted(() => {
         isTrackTime.value = minutes+':'+seconds.toString().padStart(2, '0')
     })
 })
-  console.log(artistData);
+
 
 function addToFavorites(itemId) {
-  const track = artist.tracks.value.find(({id}) => id === itemId);
-
+    const track = artist.value.tracks.find(({id}) => id === itemId);
+    // const tracks = artist.value.track.find(({ id }) => id === itemId)
   if(!localStorage.getItem('like')){
     localStorage.setItem('like', JSON.stringify([]));
   }
@@ -90,9 +90,12 @@ function addToFavorites(itemId) {
                 </div>
             </div>
             <div class="track-details">
-                <button @click="addToFavorites(track.id)" class="track-details__like" type="submit" v-if="isHover">
+                <button  @click="isFavorite" class="track-details__like" type="submit" v-if="isHover">
                     <img :src="isLiked ? '/src/app/images/active-like.svg': '/src/app/images/liked-inactive.svg'" alt="Избранное">
                 </button>
+                <!-- <button @click="addToFavorites(track.id)" class="track-details__like" type="submit" v-if="isHover">
+                    <img @click="isFavorite" :src="isLiked ? '/src/app/images/active-like.svg': '/src/app/images/liked-inactive.svg'" alt="Избранное">
+                </button> -->
                 <div class="track-details__time" v-if="isTrackTime">
                     {{ isTrackTime }}
                 </div>

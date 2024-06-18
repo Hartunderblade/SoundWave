@@ -1,5 +1,5 @@
 <script setup>
-import { onBeforeMount, ref, registerRuntimeCompiler } from 'vue';
+import { ref, computed } from 'vue';
 import artistData from '@/artist.json';
 import SongRow from '@/shared/SongRow/ui.vue';
 
@@ -8,29 +8,52 @@ import { storeToRefs } from 'pinia';
 const useSong = useSongStore();
 const { isPlaying, currentTrack, currentArtist } = storeToRefs(useSong);
 
-const like = ref([]);
+const search = ref('');
 
-function getTrack(){
-  if(!localStorage.getItem('like')){
-    localStorage.setItem('like', JSON.stringify([]))
-  }
-  like.value = JSON.parse(localStorage.getItem('like'));
-}
+//функция поиска
 
-onBeforeMount(() => {
-  getTrack();
-})
-
+const filteredTracks = computed(() => {
+    if (search.value.length === 0) return artistData.tracks;  
+    return artistData.tracks.filter((item) => {
+        let str = search.value.toLowerCase();
+        return item.author.toLowerCase().includes(str) || item.name.toLowerCase().includes(str)
+    });
+});
 
 </script>
 
 <template>
-  <div class="container-form">
-    <div v-for="track in like" :key="track.id">
-      <SongRow :track="track" :artistData="artistData" :index="++index" />
+    <div class="container-form">
+        <input type="text" v-model="search" placeholder="Я ищу...">
+        <div  class="artist">
+            <div class="artist-track">
+                <div v-for="track, index in filteredTracks.slice(0, 5)" :key="track">
+                    <SongRow :artistData="artistData" :track="track" :index="++index" style="width: 1000px;" />
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 </template>
 
 <style lang="scss" scoped>
+.container-form{
+    input{
+        color: #000;
+        width: 300px;
+        padding: 14px;
+        border-radius: 100px;
+        
+        margin-bottom: 40px;
+    }
+}
+.artist {
+    display: flex;
+    justify-content: space-between;
+
+    .artist-track {
+        display: flex;
+        flex-direction: column;
+        row-gap: 20px;
+    }
+}
 </style>
